@@ -3,39 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IGDTUW Campus Map</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>IGDTUW 3D Map - Coming Soon</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1a1a, #333333);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      margin: 20px 0;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: transform 0.3s, color 0.3s;
+      text-align: center;
+    }
+
+    .sidebar a:hover {
+      color: #ff4500;
+      transform: scale(1.1);
+    }
+
+    .main-content {
+      margin-left: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-grow: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .title {
+      font-size: 4rem;
+      font-weight: 600; 
+      color: #ff4500;
+      text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
+      letter-spacing: 2px; 
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      margin: 1.5rem 0;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      letter-spacing: 1px; 
+    }
+
+    .search-container {
+      margin-top: 2rem;
+    }
+
+    .search-bar {
+      width: 400px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .search-bar::placeholder {
+      color: #cccccc;
+    }
+
+    .btn-search {
+      padding: 10px 25px;
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background: #ff4500;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      font-family: 'Poppins', sans-serif; 
+    }
+
+    .btn-search:hover {
+      background: #ff6347;
+      transform: translateY(-3px);
+    }
+
+    /* Video Background Styles */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      filter: brightness(50%); 
+    }
+
+    .video-background iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 177.78vh; /* 16:9 aspect ratio */
+      height: 100vh;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
-  <div id="loading-screen">Loading IGDTUW Campus...</div>
 
-  <!-- Sidebar Navigation -->
-  <div id="sidebar">
-    <h1>IGDTUW Campus Map</h1>
-    <input type="text" id="search-box" placeholder="Search for a building..." />
-    <ul id="search-suggestions"></ul>
-    <button id="reset-navigation">Reset Navigation</button>
+  <!-- Video Background -->
+  <div class="video-background">
+    <iframe 
+      src="https://www.youtube.com/embed/Jb-Q8rpM6AI?autoplay=1&mute=1&loop=1&playlist=Jb-Q8rpM6AI&controls=0&showinfo=0&rel=0" 
+      frameborder="0" 
+      allow="autoplay; fullscreen" 
+      allowfullscreen>
+    </iframe>
   </div>
 
-  <!-- Tooltip -->
-  <div id="tooltip"></div>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Updates</a>
+  </div>
 
-  <!-- Modal -->
-  <div id="info-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 id="modal-title"></h2>
-      <p id="modal-description"></p>
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="title">Coming Soon</div>
+    <div class="subtitle">The 3D Mapping Experience for IGDTUW is Almost Here</div>
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Search for buildings...">
+      <button class="btn-search">Search</button>
     </div>
   </div>
 
-  <!-- Feedback Form -->
-  <div id="feedback-form">
-    <h2>Feedback</h2>
-    <textarea id="feedback-text" placeholder="Enter your feedback here..."></textarea>
-    <button id="submit-feedback">Submit</button>
-  </div>
-
-  <script type="module" src="./script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
